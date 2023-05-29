@@ -54,7 +54,7 @@ CREATE TABLE productos(
 CREATE TABLE proveedores (
 
     proveedor_id INT primary key AUTO_INCREMENT,
-    nombre VARCHAR(50),
+    nombre VARCHAR(60),
     telefono INT,
-    ciudad VARCHAR(50)
+    ciudad VARCHAR(60)
 );
