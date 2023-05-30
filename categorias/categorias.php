@@ -1,3 +1,18 @@
+<?php
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
+require_once("config.php");
+$data = new Config();
+$all = $data->obtainAll();
+print_r($all);
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -52,7 +67,7 @@
         <table class="table table-custom ">
           <thead>
             <tr>
-              <th scope="col">#</th>
+              <th scope="col">id</th>
               <th scope="col">NOMBRES</th>
               <th scope="col">DESCRIPCION</th>
               <th scope="col">IMAGEN</th>
@@ -62,8 +77,19 @@
           <tbody class="" id="tabla">
 
             <!-- ///////Llenado DInamico desde la Base de Datos -->
-         
-       
+          <?php
+            
+              foreach ($all as $key => $val){
+                
+              
+            ?>
+
+            <tr>
+                <td> <?php echo $val ['categoria_id']?></td>
+                <td> <?php echo $val ['nombre']?></td>
+                <td> <?php echo $val ['descripcion']?></td>
+            </tr>
+              <?php } ?>
 
           </tbody>
         
@@ -90,27 +116,27 @@
       <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" >
         <div class="modal-content" >
           <div class="modal-header" >
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Estudiante</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva Categoria</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" style="background-color: rgb(231, 253, 246);">
-            <form class="col d-flex flex-wrap" method="post">
+            <form class="col d-flex flex-wrap" action="registrarCategoria.php" method="post">
               <div class="mb-1 col-12">
-                <label for="nombres" class="form-label">Nombres</label>
+                <label for="nombre" class="form-label">Nombre</label>
                 <input 
                   type="text"
-                  id="nombres"
-                  name="nombres"
+                  id="nombre"
+                  name="nombre"
                   class="form-control"  
                 />
               </div>
 
               <div class="mb-1 col-12">
-                <label for="direccion" class="form-label">Descripcion</label>
+                <label for="descripcion" class="form-label">Descripcion</label>
                 <input 
                   type="text"
-                  id="direccion"
-                  name="direccion"
+                  id="descripcion"
+                  name="descripcion"
                   class="form-control"  
                 />
               </div>

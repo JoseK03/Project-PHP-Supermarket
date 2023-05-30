@@ -8,7 +8,7 @@ ini_set("display_startup_errors", 1);
 
 error_reporting(E_ALL);
 
-require_once("/db.php");
+require_once("../db.php");
 
 class Config{
 
@@ -24,7 +24,7 @@ class Config{
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
 
-        $this->dbCnx = new PDO(DB_TYPE.":host".DB_HOST.";dbname=".DB_NAME,DB_USER,DB_PWD,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        $this->dbCnx = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME,DB_USER,DB_PWD,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
     }
 
     public function SetCategoriaId($categoria_id){
@@ -60,6 +60,15 @@ class Config{
         }
     }
 
+    public function obtainAll(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM categorias");
+            $stm->execute();
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();            
+        }
+    }
 
 }
 
