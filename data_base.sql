@@ -9,7 +9,7 @@ CREATE TABLE  categorias(
     imagen MEDIUMBLOB
 );
 
-CREATE TABLE clientes(
+/* CREATE TABLE clientes(
     cliente_id INT primary key AUTO_INCREMENT,
     celular VARCHAR (50),
     compañia VARCHAR (50) 
@@ -57,4 +57,4 @@ CREATE TABLE proveedores (
     nombre VARCHAR(60),
     telefono INT,
     ciudad VARCHAR(60)
-);
+); */
