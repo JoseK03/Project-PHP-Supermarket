@@ -106,7 +106,7 @@
               </div>
 
               <div class="mb-1 col-12">
-                <label for="direccion" class="form-label">Direccion</label>
+                <label for="direccion" class="form-label">Descripcion</label>
                 <input 
                   type="text"
                   id="direccion"
@@ -115,7 +115,7 @@
                 />
               </div>
 
-              <div class="mb-1 col-12">
+              <!-- <div class="mb-1 col-12">
                 <label for="logros" class="form-label">Logros</label>
                 <input 
                   type="text"
@@ -124,7 +124,7 @@
                   class="form-control"  
                  
                 />
-              </div>
+              </div> -->
 
               <div class=" col-12 m-2">
                 <input type="submit" class="btn btn-primary" value="guardar" name="guardar"/>

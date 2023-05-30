@@ -35,15 +35,15 @@ class Config{
         return $this->categoria_id;
     }
 
-    public function SetNonmbre($nombre){
+    public function SetNombre($nombre){
         $this->nombre = $nombre;
     }
 
-    public function Getnombre(){
+    public function GetNombre(){
         return $this->nombre;
     }
 
-    public function SetDescription($descripcion){
+    public function SetDescripcion($descripcion){
         $this->descripcion = $descripcion;
     }
 
@@ -51,6 +51,14 @@ class Config{
         return $this->descripcion;
     }
 
+    public function InsertData(){
+        try {
+            $stm = $this->dbCnx->prepare("INSERT INTO categorias(nombre,descripcion) values(?,?)");
+            $stm->execute([$this->nombre, $this->descripcion]);
+        } catch (Exception $e) {
+            return $e->getMessage();            
+        }
+    }
 
 
 }
