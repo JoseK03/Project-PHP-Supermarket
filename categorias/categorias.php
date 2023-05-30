@@ -54,8 +54,8 @@
             <tr>
               <th scope="col">#</th>
               <th scope="col">NOMBRES</th>
-              <th scope="col">DIRECCION</th>
-              <th scope="col">LOGROS</th>
+              <th scope="col">DESCRIPCION</th>
+              <th scope="col">IMAGEN</th>
               <th scope="col">DETALLE</th>
             </tr>
           </thead>
