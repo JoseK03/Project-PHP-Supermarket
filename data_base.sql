@@ -1,6 +1,6 @@
-CREATE DATABASE supermarket;
+CREATE DATABASE SUPERMARKET;
 
-USE supermarket;
+USE SUPERMARKET;
 
 CREATE TABLE  categorias(
     categoria_id INT primary key AUTO_INCREMENT,

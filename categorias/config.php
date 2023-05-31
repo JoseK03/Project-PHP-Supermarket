@@ -70,6 +70,18 @@ class Config{
         }
     }
 
+    public function Delete(){
+        try {
+            $stm = $this->dbCnx->prepare("DELETE FROM categorias WHERE categoria_id = ?");
+            $stm->execute([$this->categoria_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    
+
 }
 
 ?>

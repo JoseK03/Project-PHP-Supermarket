@@ -88,6 +88,8 @@ print_r($all);
                 <td> <?php echo $val ['categoria_id']?></td>
                 <td> <?php echo $val ['nombre']?></td>
                 <td> <?php echo $val ['descripcion']?></td>
+                <td><a href="borrarCategorias.php?categoria_id=<?= $val['categoria_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
+                
             </tr>
               <?php } ?>
 
