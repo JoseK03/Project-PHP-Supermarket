@@ -50,7 +50,7 @@ print_r($all);
         </a>
         <a href="estudiantes.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
-          <h3 style="margin: 0px;font-weight: 800;">Actualizar</h3>
+          <h3 style="margin: 0px;font-weight: 800;">Clientes</h3>
         </a>
        
 
