@@ -80,6 +80,26 @@ class Config{
         }
     }
 
+    public function SelectOne(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM categorias WHERE categoria_id = ?");
+            $stm->execute([$this->categoria_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function UpDate(){
+        try {
+            $stm = $this->dbCnx->prepare("UPDATE categorias SET nombre = ?, descripcion = ? WHERE categoria_id = ?");
+            $stm->execute([$this->nombre ,$this->descripcion, $this->categoria_id]);
+            return $stm->fetchAll();    
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+
+    }
     
 
 }
