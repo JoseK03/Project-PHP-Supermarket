@@ -8,23 +8,21 @@ ini_set("display_startup_errors", 1);
 
 error_reporting(E_ALL);
 
-require_once("../db.php");
+require_once("../config/db.php");
+require_once("../config/conectar.php");
 
-class Config{
+
+class Config extends Conectar{
 
     private $categoria_id;
     private $nombre;
     private $descripcion;
     
-
-    protected $dbCnx;
-
-    public function __construct($categoria_id = 0,$nombre= "",$descripcion=""){
+    public function __construct($categoria_id = 0,$nombre= "",$descripcion="", $dbCnx=""){
         $this->categoria_id = $categoria_id;
         $this->nombre = $nombre;
         $this->descripcion = $descripcion;
-
-        $this->dbCnx = new PDO(DB_TYPE.":host=".DB_HOST.";dbname=".DB_NAME,DB_USER,DB_PWD,[PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+        parent:: __construct($dbCnx);
     }
 
     public function SetCategoriaId($categoria_id){

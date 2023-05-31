@@ -48,7 +48,7 @@ print_r($all);
           <i class="bi bi-house-door"> </i>
           <h3 style="margin: 0px;">Categorias</h3>
         </a>
-        <a href="estudiantes.php" style="display: flex;gap:1px;">
+        <a href="../clientes/clientes.php" style="display: flex;gap:1px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;font-weight: 800;">Clientes</h3>
         </a>
