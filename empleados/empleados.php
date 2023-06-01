@@ -1,9 +1,14 @@
 <?php
 
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
 
 require_once("config.php");
 $data = new Config();
-$e = $data->ObtainAll();
+$all = $data->ObtainAll();
 
 
 ?>
@@ -82,7 +87,7 @@ $e = $data->ObtainAll();
             <!-- ///////Llenado DInamico desde la Base de Datos -->
            <?php
             
-              foreach ($e as $key => $val){
+              foreach ($all as $key => $val){
                 
               
             ?>
@@ -92,8 +97,8 @@ $e = $data->ObtainAll();
                 <td> <?php echo $val ['nombre']?></td>
                 <td> <?php echo $val ['celular']?></td>
                 <td> <?php echo $val ['direccion']?></td>
-                <td> <a href="borrarEmpleados.php?categoria_id=<?= $val['empleado_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
-                <td> <a href="modificarEmpleados.php?categoria_id=<?= $val['empleado_id']?>" class="btn btn-warning">Editar</a></td>
+                <td> <a href="eliminarEmpleados.php?empleado_id=<?= $val['empleado_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
+                <td> <a href="modificarEmpleados.php?empleado_id=<?= $val['empleado_id']?>" class="btn btn-warning">Editar</a></td>
                 
             </tr>
               <?php } ?> 

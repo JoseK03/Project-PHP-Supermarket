@@ -78,6 +78,34 @@ class Config extends Conectar{
         }
     }
 
+    public function Delete(){
+        try {
+            $stm = $this->dbCnx->prepare("DELETE FROM empleados WHERE empleado_id = ?");
+            $stm->execute([$this->empleado_id]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function SelectOne(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM empleados WHERE empleado_id = ?");
+            $stm->execute([$this->empleado_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function Update(){
+        try {
+            $stm = $this->dbCnx->prepare("UPDATE empleados SET nombre = ?, celular = ?, direccion = ? WHERE empleado_id = ?");
+            $stm->execute([$this->nombre, $this->celular, $this->direccion, $this->empleado_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
     
 
