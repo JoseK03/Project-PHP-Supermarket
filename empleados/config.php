@@ -16,11 +16,13 @@ class Config extends Conectar{
     private $celular;
     private $direccion;
 
-    public function __construct($empleado_id = 0, $nombre = "", $celular = 0, $direccion = ""){
+    public function __construct($empleado_id = 0, $nombre = "", $celular = 0, $direccion = "", $dbCnx=""){
         $this->empleado_id = $empleado_id;
         $this->nombre = $nombre;
         $this->celular = $celular;
         $this->direccion = $direccion;
+
+        parent:: __construct($dbCnx);
     }
 
     public function SetEmpleadoId($empleado_id){
@@ -68,7 +70,6 @@ class Config extends Conectar{
         try {
             $stm = $this->dbCnx->prepare("SELECT * FROM empleados");
             $stm->execute();
-
             return $stm->fetchAll();
         } catch (Exception $e) {
             return $e->getMessage();

@@ -1,3 +1,21 @@
+<?php
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
+require_once("config.php");
+$data = new Config();
+$all = $data->obtainAll();
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -66,7 +84,7 @@
           <tbody class="" id="tabla">
 
             <!-- ///////Llenado DInamico desde la Base de Datos -->
-          <!-- <?php
+           <?php
             
               foreach ($all as $key => $val){
                 
@@ -74,13 +92,14 @@
             ?>
 
             <tr>
-                <td> <?php echo $val ['cliente_id']?></td>
+                <td> <?php echo $val ['empleado_id']?></td>
+                <td> <?php echo $val ['nombre']?></td>
                 <td> <?php echo $val ['celular']?></td>
-                <td> <?php echo $val ['compañia']?></td>
+                <td> <?php echo $val ['direccion']?></td>
                 <td> <a href="borrarClientes.php?cliente_id=<?= $val['cliente_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
                 <td> <a href="modificarClientes.php?cliente_id=<?= $val['cliente_id']?>" class="btn btn-warning">Editar</a></td>
             </tr>
-              <?php } ?> -->
+              <?php } ?> 
 
           </tbody>
         
