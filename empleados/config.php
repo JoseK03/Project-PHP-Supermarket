@@ -24,7 +24,7 @@ class Config extends Conectar{
     }
 
     public function SetEmpleadoId($empleado_id){
-        $this->empleado_id = $sempleado_id;
+        $this->empleado_id = $empleado_id;
     }
 
     public function GetEmpleadoId(){
@@ -36,7 +36,7 @@ class Config extends Conectar{
     }
 
     public function GetNombre(){
-        return $this->nombre = $nombre;
+        return $this->nombre;
     }
 
     public function SetCelular($celular){
@@ -55,7 +55,25 @@ class Config extends Conectar{
         return $this->direccion;
     }
 
-    public function InsertData 
+    public function InsertData(){
+        try {
+            $stm = $this->dbCnx->prepare("INSERT INTO empleados(nombre,celular,direccion) values(?,?,?)");
+            $stm->execute([$this->nombre, $this->celular, $this->direccion]);
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function ObtainAll(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM empleados");
+            $stm->execute();
+
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 
     
 

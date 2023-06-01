@@ -111,9 +111,19 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" style="background-color: rgb(231, 253, 246);">
-            <form class="col d-flex flex-wrap" action="registrarClientes.php" method="post">
+            <form class="col d-flex flex-wrap" action="registrarEmpleados.php" method="post">
               <div class="mb-1 col-12">
-                <label for="nombre" class="form-label">Celular</label>
+                <label for="nombre" class="form-label">Nombre</label>
+                <input 
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  class="form-control"  
+                />
+              </div>
+
+              <div class="mb-1 col-12">
+                <label for="descripcion" class="form-label">Celular</label>
                 <input 
                   type="text"
                   id="celular"
@@ -121,16 +131,16 @@
                   class="form-control"  
                 />
               </div>
-
               <div class="mb-1 col-12">
-                <label for="descripcion" class="form-label">Compañia</label>
+                <label for="descripcion" class="form-label">Direccion</label>
                 <input 
                   type="text"
-                  id="compañia"
-                  name="compañia"
+                  id="direccion"
+                  name="direccion"
                   class="form-control"  
                 />
               </div>
+              
 
               <!-- <div class="mb-1 col-12">
                 <label for="logros" class="form-label">Logros</label>
@@ -144,7 +154,7 @@
               </div> -->
 
               <div class=" col-12 m-2">
-                <input type="submit" class="btn btn-primary" value="guardar" name="clientes"/>
+                <input type="submit" class="btn btn-primary" value="guardar" name="empleados"/>
               </div>
             </form>  
          </div>       
