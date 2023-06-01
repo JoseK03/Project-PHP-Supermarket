@@ -61,8 +61,10 @@ class Config extends Conectar{
         try {
             $stm = $this->dbCnx->prepare("INSERT INTO empleados(nombre,celular,direccion) values(?,?,?)");
             $stm->execute([$this->nombre, $this->celular, $this->direccion]);
-        } catch (Exception $e) {
-            return $e->getMessage();
+
+        } 
+        catch (Exception $e) {
+            return $e->getMessage();            
         }
     }
 
@@ -72,9 +74,10 @@ class Config extends Conectar{
             $stm->execute();
             return $stm->fetchAll();
         } catch (Exception $e) {
-            return $e->getMessage();
+            return $e->getMessage();            
         }
     }
+
 
     
 

@@ -1,13 +1,9 @@
 <?php
-ini_set("display_errors", 1);
 
-ini_set("display_startup_errors", 1);
-
-error_reporting(E_ALL);
 
 require_once("config.php");
 $data = new Config();
-$all = $data->obtainAll();
+$e = $data->ObtainAll();
 
 
 ?>
@@ -86,7 +82,7 @@ $all = $data->obtainAll();
             <!-- ///////Llenado DInamico desde la Base de Datos -->
            <?php
             
-              foreach ($all as $key => $val){
+              foreach ($e as $key => $val){
                 
               
             ?>
@@ -96,8 +92,9 @@ $all = $data->obtainAll();
                 <td> <?php echo $val ['nombre']?></td>
                 <td> <?php echo $val ['celular']?></td>
                 <td> <?php echo $val ['direccion']?></td>
-                <td> <a href="borrarClientes.php?cliente_id=<?= $val['cliente_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
-                <td> <a href="modificarClientes.php?cliente_id=<?= $val['cliente_id']?>" class="btn btn-warning">Editar</a></td>
+                <td> <a href="borrarEmpleados.php?categoria_id=<?= $val['empleado_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
+                <td> <a href="modificarEmpleados.php?categoria_id=<?= $val['empleado_id']?>" class="btn btn-warning">Editar</a></td>
+                
             </tr>
               <?php } ?> 
 
@@ -142,7 +139,7 @@ $all = $data->obtainAll();
               </div>
 
               <div class="mb-1 col-12">
-                <label for="descripcion" class="form-label">Celular</label>
+                <label for="celular" class="form-label">Celular</label>
                 <input 
                   type="text"
                   id="celular"
@@ -151,7 +148,7 @@ $all = $data->obtainAll();
                 />
               </div>
               <div class="mb-1 col-12">
-                <label for="descripcion" class="form-label">Direccion</label>
+                <label for="direccion" class="form-label">Direccion</label>
                 <input 
                   type="text"
                   id="direccion"
@@ -173,7 +170,7 @@ $all = $data->obtainAll();
               </div> -->
 
               <div class=" col-12 m-2">
-                <input type="submit" class="btn btn-primary" value="guardar" name="empleados"/>
+                <input type="submit" class="btn btn-primary" value="guardar" name="guardar"/>
               </div>
             </form>  
          </div>       
