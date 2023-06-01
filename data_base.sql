@@ -23,7 +23,6 @@ CREATE TABLE empleados(
     direccion VARCHAR (50)
 );
 
-INSERT INTO empleados VALUES (1, "deiby", 310, "calle40");
 
 CREATE TABLE facturas(
 
