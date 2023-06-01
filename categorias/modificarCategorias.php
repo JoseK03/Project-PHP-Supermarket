@@ -11,7 +11,7 @@ $id= $_GET['categoria_id'];
 $data->SetCategoriaId($id);
 $record=$data->SelectOne();
 $val = $record[0];
-print_r($val);
+
 //---------
 
 if(isset($_POST['editar'])){

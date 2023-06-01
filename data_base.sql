@@ -11,7 +11,7 @@ CREATE TABLE  categorias(
 
 CREATE TABLE clientes(
     cliente_id INT primary key AUTO_INCREMENT,
-    celular VARCHAR (50),
+    celular INT,
     compañia VARCHAR (50) 
 );
 
@@ -56,5 +56,5 @@ CREATE TABLE proveedores (
     proveedor_id INT primary key AUTO_INCREMENT,
     nombre VARCHAR(60),
     telefono INT,
-    ciudad VARCHAR(60)
+    ciudad VARCHAR(60),
 );

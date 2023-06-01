@@ -74,11 +74,36 @@ class Config extends Conectar{
 
     public function Delete(){
         try {
-            $stm = $this->dbCnx->prepare("DELETE FROM clientes WHERE clientes_id = ?");
+            $stm = $this->dbCnx->prepare("DELETE FROM clientes WHERE cliente_id = ?");
+            $stm->execute([$this->cliente_id]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
     }
+
+    public function SelectOne(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM clientes WHERE cliente_id = ? ");
+            $stm->execute([$this->cliente_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+    
+    public function UpDate(){
+        try {
+            $stm = $this->dbCnx->prepare("UPDATE clientes SET celular = ?, compañia = ? WHERE cliente_id = ?");
+            $stm->execute([$this->celular, $this->compañia, $this->cliente_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+
+
+    
 }
 
 

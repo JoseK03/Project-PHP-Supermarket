@@ -81,6 +81,7 @@ class Config extends Conectar{
     public function SelectOne(){
         try {
             $stm = $this->dbCnx->prepare("SELECT * FROM categorias WHERE categoria_id = ?");
+            
             $stm->execute([$this->categoria_id]);
             return $stm->fetchAll();
         } catch (Exception $e) {
