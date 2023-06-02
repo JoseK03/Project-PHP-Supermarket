@@ -9,8 +9,6 @@ require_once("config.php");
 $data = new Config();
 $all = $data->obtainAll();
 
-
-
 ?>
 
 <!DOCTYPE html>
