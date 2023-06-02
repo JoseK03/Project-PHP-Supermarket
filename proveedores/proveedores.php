@@ -1,18 +1,3 @@
-<?php
-ini_set("display_errors", 1);
-
-ini_set("display_startup_errors", 1);
-
-error_reporting(E_ALL);
-
-require_once("config.php");
-$data = new Config();
-$all = $data->obtainAll();
-print_r($all);
-
-
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -65,7 +50,6 @@ print_r($all);
           <h3 style="margin: 0px;font-weight: 800;">Proveedores</h3>
         </a>
        
-       
 
 
       </div>
@@ -90,7 +74,7 @@ print_r($all);
           <tbody class="" id="tabla">
 
             <!-- ///////Llenado DInamico desde la Base de Datos -->
-          <?php
+          <!-- <?php
             
               foreach ($all as $key => $val){
                 
@@ -104,7 +88,7 @@ print_r($all);
                 <td> <a href="borrarCategorias.php?categoria_id=<?= $val['categoria_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
                 <td> <a href="modificarCategorias.php?categoria_id=<?= $val['categoria_id']?>" class="btn btn-warning">Editar</a></td>
             </tr>
-              <?php } ?>
+              <?php } ?> -->
 
           </tbody>
         

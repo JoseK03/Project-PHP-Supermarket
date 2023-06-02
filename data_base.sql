@@ -1,4 +1,4 @@
--- Active: 1685648882212@@127.0.0.1@3306@supermarket
+-- Active: 1685713143707@@127.0.0.1@3306@supermarket
 CREATE DATABASE supermarket;
 
 USE supermarket;
@@ -32,6 +32,14 @@ CREATE TABLE facturas(
     fecha DATE
 );
 
+CREATE TABLE proveedores (
+
+    proveedor_id INT primary key AUTO_INCREMENT,
+    nombre VARCHAR(60),
+    telefono VARCHAR(50),
+    ciudad VARCHAR(60)
+);
+
 CREATE TABLE FacturaDetalle(
 
     factura_id INT,
@@ -52,10 +60,3 @@ CREATE TABLE productos(
     descontinuado VARCHAR(50),
 );
 
-CREATE TABLE proveedores (
-
-    proveedor_id INT primary key AUTO_INCREMENT,
-    nombre VARCHAR(60),
-    telefono INT,
-    ciudad VARCHAR(60),
-);
