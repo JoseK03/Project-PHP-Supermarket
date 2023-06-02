@@ -102,8 +102,8 @@ $all = $data->ObtainAll();
                   <td><?php echo $val['nombre'] ?></td>
                   <td><?php echo $val['telefono'] ?></td>
                   <td><?php echo $val['ciudad'] ?></td>
-                  <td><a href="eliminarProveedores.php?proveedor_id=<?= $val['proveedor_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
-                  <td><a href="modificarProveedores.php?proveedor_id<?= $val['proveedor_id']?>" class="btn btn-danger">DGSGFDS</a></td>
+                  <td><a href="eliminarProveedores.php?proveedor_id=<?= $val['proveedor_id']?> & req=delete" class="btn btn-danger">ELIMINAR</a></td>
+                  <td><a href="modificarProveedores.php?proveedor_id=<?= $val['proveedor_id']?>" class="btn btn-warning">MODIFICAR</a></td>
                 </tr>
 
           <?php } ?>

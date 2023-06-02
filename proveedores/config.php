@@ -89,6 +89,26 @@ class Config extends Conectar{
             return $e->getMessage();
         }
     }
+
+    public function SelectOne(){
+        try {
+            $stm = $this->dbCnx->prepare("SELECT * FROM proveedores WHERE proveedor_id = ?");
+            $stm->execute([$this->proveedor_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function Update(){
+        try {
+            $stm = $this->dbCnx->prepare("UPDATE proveedores SET nombre = ?, telefono = ?, ciudad = ? WHERE proveedor_id = ?");
+            $stm->execute([$this->nombre, $this->telefono, $this->ciudad, $this->proveedor_id]);
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
 
 ?>
