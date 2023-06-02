@@ -1,3 +1,21 @@
+<?php
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
+require_once("config.php");
+$data = new Config();
+
+
+$all = $data->ObtainAll();
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -65,31 +83,30 @@
           <thead>
             <tr>
               <th scope="col">id</th>
-              <th scope="col">NOMBRES</th>
-              <th scope="col">DESCRIPCION</th>
-              <th scope="col">IMAGEN</th>
+              <th scope="col">NOMBRE</th>
+              <th scope="col">TELEFONO</th>
+              <th scope="col">CIUDAD</th>
               <th scope="col">DETALLE</th>
             </tr>
           </thead>
           <tbody class="" id="tabla">
 
             <!-- ///////Llenado DInamico desde la Base de Datos -->
-          <!-- <?php
-            
-              foreach ($all as $key => $val){
-                
+          <?php
+              foreach ($all as $key => $val) {?>
               
-            ?>
+          
 
-            <tr>
-                <td> <?php echo $val ['categoria_id']?></td>
-                <td> <?php echo $val ['nombre']?></td>
-                <td> <?php echo $val ['descripcion']?></td>
-                <td> <a href="borrarCategorias.php?categoria_id=<?= $val['categoria_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
-                <td> <a href="modificarCategorias.php?categoria_id=<?= $val['categoria_id']?>" class="btn btn-warning">Editar</a></td>
-            </tr>
-              <?php } ?> -->
+                <tr>
+                  <td><?php echo $val['proveedor_id'] ?></td>
+                  <td><?php echo $val['nombre'] ?></td>
+                  <td><?php echo $val['telefono'] ?></td>
+                  <td><?php echo $val['ciudad'] ?></td>
+                  <td><a href="eliminarProveedores.php?proveedor_id<?= $val['proveedor_id']?> &req=delete" class="btn btn-danger">ELIMINAR</a></td>
+                  <td><a href="modificarProveedores.php?proveedor_id<?= $val['proveedor_id']?>" class="btn btn-danger">DGSGFDS</a></td>
+                </tr>
 
+          <?php } ?>
           </tbody>
         
         </table>
@@ -119,7 +136,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" style="background-color: rgb(231, 253, 246);">
-            <form class="col d-flex flex-wrap" action="registrarCategoria.php" method="post">
+            <form class="col d-flex flex-wrap" action="registrarProveedores.php" method="post">
               <div class="mb-1 col-12">
                 <label for="nombre" class="form-label">Nombre</label>
                 <input 
@@ -131,11 +148,20 @@
               </div>
 
               <div class="mb-1 col-12">
-                <label for="descripcion" class="form-label">Descripcion</label>
+                <label for="telefono" class="form-label">Telefono</label>
                 <input 
                   type="text"
-                  id="descripcion"
-                  name="descripcion"
+                  id="telefono"
+                  name="telefono"
+                  class="form-control"  
+                />
+              </div>
+              <div class="mb-1 col-12">
+                <label for="ciudad" class="form-label">Ciudad</label>
+                <input 
+                  type="text"
+                  id="ciudad"
+                  name="ciudad"
                   class="form-control"  
                 />
               </div>

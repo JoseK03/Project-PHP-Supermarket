@@ -1,7 +1,13 @@
 <?php
 
-require_once("../config/conectar.php");
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
 require_once("../config/db.php");
+require_once("../config/conectar.php");
 
 class Config extends Conectar{
 
@@ -10,20 +16,22 @@ class Config extends Conectar{
     private $telefono;
     private $ciudad;
 
-    public function __construct($proveedor_id = 0, $nombre = "", $telefono = "", $ciudad= "", $dbCnx = ""){
+    public function __construct($proveedor_id = 0, $nombre = "",$telefono = "",$ciudad= "",$dbCnx = ""){
         $this->proveedor_id = $proveedor_id;
         $this->nombre = $nombre;
         $this->telefono = $telefono;
         $this->ciudad = $ciudad;
-
         parent:: __construct($dbCnx);
     }
 
-    public function SetProovedorId($proveedor_id){
+
+
+
+    public function SetProveedorId($proveedor_id){
         $this->proveedor_id = $proveedor_id;
     }
 
-    public function GetProovedorId(){
+    public function GetProveedorId(){
         return $this->proveedor_id;
     }
 
@@ -55,8 +63,8 @@ class Config extends Conectar{
 
     public function InsertData(){
         try {
-            $stm = $this->$dbCnx->prepare("SELECT INTO proveedores(nombre,telefono,ciudad) values(?,?,?)");
-            $stm->execute([$this->nombre, $this->celular, $this->ciudad]);
+            $stm = $this->dbCnx->prepare("INSERT INTO proveedores(nombre,telefono,ciudad) VALUES (?,?,?)");
+            $stm->execute([$this->nombre, $this->telefono, $this->ciudad]);
         } catch (Exception $e) {
             return $e->getMessage();
         }
@@ -66,6 +74,16 @@ class Config extends Conectar{
         try {
             $stm = $this->dbCnx->prepare("SELECT * FROM  proveedores");
             $stm->execute();
+            return $stm->fetchAll();
+        } catch (Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
+    public function Delete(){
+        try {
+            $stm = $this->dbCnx->prepare("DELETE FROM proveedores WHERE proveedor_id = ?");
+            $stm->execute([$this->proveedor_id]);
             return $stm->fetchAll();
         } catch (Exception $e) {
             return $e->getMessage();

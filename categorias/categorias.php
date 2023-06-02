@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 require_once("config.php");
 $data = new Config();
 $all = $data->obtainAll();
-print_r($all);
+
 
 
 ?>
@@ -101,8 +101,10 @@ print_r($all);
                 <td> <?php echo $val ['categoria_id']?></td>
                 <td> <?php echo $val ['nombre']?></td>
                 <td> <?php echo $val ['descripcion']?></td>
-                <td> <a href="borrarCategorias.php?categoria_id=<?= $val['categoria_id']?> & req=delete" class="btn btn-danger">Eliminar</a></td>
-                <td> <a href="modificarCategorias.php?categoria_id=<?= $val['categoria_id']?>" class="btn btn-warning">Editar</a></td>
+                <td> 
+                  <a href="borrarCategorias.php?categoria_id=<?= $val['categoria_id']?> & req=delete" class="btn btn-danger">Eliminar</a>
+                  <a href="modificarCategorias.php?categoria_id=<?= $val['categoria_id']?>" class="btn btn-warning">Editar</a>
+              </td>
             </tr>
               <?php } ?>
 
